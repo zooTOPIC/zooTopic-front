@@ -4,13 +4,13 @@ import styled from 'styled-components';
 
 
 const StyledImage = styled.img`
-  width: 100px;
+  height: 90px;
 `;
 
 const StyledTopic = styled.span`
-  font-size: 7xl;
+  font-size: 60px;
   font-weight: bold;
-  color: #f00; /* red color */
+  color: #D00D17
 `;
 
 function Header(props) {
@@ -35,21 +35,23 @@ function Header(props) {
   return (
     <div style={{ background: "white", display: "flex", flexDirection: "column", justifyContent: "space-around" }}>
       <div className="w-full flex items-center justify-center">
+      <Link to="/">
         <div className="col-lg-12 p-2 text-center flex items-center">
           <StyledImage src="https://zootopic-s3.s3.ap-northeast-2.amazonaws.com/zoo.png" alt="zoo" className="h-24 inline-block" />
           <StyledTopic className="inline-block align-middle">TOPIC</StyledTopic>
         </div>
+      </Link>
       </div>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", height: "35px" }}>
         <div>
           <Link to="/">
-            <img src="https://zootopic-s3.s3.ap-northeast-2.amazonaws.com/title.png" style={{ width: "100px" }} />
+            <img src="https://zootopic-s3.s3.ap-northeast-2.amazonaws.com/title.png" style={{ width: "100px", marginLeft: "5px" }} />
           </Link>
         </div>
 
         {/* 조건부 렌더링 */}
         {isDevelopersPage() ? (
-          <nav>
+          <nav style={{marginRight: "5px"}}>
             <ul style={{ display: "flex", listStyleType: "none" }}>
               {/* JSON 데이터를 이용하여 동적으로 네비게이션 링크 생성 */}
               {props.developersData.map(developer => (
@@ -62,7 +64,7 @@ function Header(props) {
             </ul>
           </nav>
         ) : (
-          <nav>
+          <nav style={{marginRight: "5px"}}>
               <ul style={{ display: "flex", listStyleType: "none" }}>
                 {/* 조건부 렌더링 */}
                 {isLoggedIn ? (
