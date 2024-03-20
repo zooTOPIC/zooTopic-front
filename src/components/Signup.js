@@ -5,6 +5,9 @@ function Signup(props) {
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
       <div className="bg-white p-8 rounded shadow-md w-96">
+          <Link to="/">
+            <img src="https://zootopic-s3.s3.ap-northeast-2.amazonaws.com/title.png" style={{ width: "100px" }} />
+          </Link>
         <h2 className="text-2xl font-semibold mb-4">Signup</h2>
         <form>
           <div className="mb-4">

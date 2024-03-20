@@ -1,12 +1,3 @@
-// function Developers() {
-//     return (
-//       <div className="Developers">
-//       </div>
-//     );
-//   }
-  
-//   export default Developers;
-
 import React from "react";
 import Developer from "../components/Developer";
 import developersData from "../data/developersData.json";
@@ -16,9 +7,11 @@ import Footer from "../components/Footer";
 function Developers() {
   return (
     <div>
-      <Header />
+      <Header developersData={developersData} />
       {developersData.map((developer) => (
-        <Developer key={developer.id} {...developer} />
+        <div id={developer.id} key={developer.id}>
+          <Developer {...developer} />
+        </div>
       ))}
       <Footer />
     </div>

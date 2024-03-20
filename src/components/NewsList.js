@@ -1,29 +1,3 @@
-// import React from "react"
-// import News from "./News"
-
-// function NewsList(props) {
-//     return(
-//         <div>
-//             뉴스 리스트
-//             <News />
-//             <News />
-//             <News />
-//             <News />
-//             <News />
-//             <News />
-//             <News />
-//             <News />
-//             <News />
-//             <News />
-//             <News />
-//             <News />
-//         </div>
-//     )
-// }
-
-// export default NewsList
-
-// NewsList.js
 import React, { useState, useEffect } from "react";
 import News from "./News";
 
@@ -53,11 +27,12 @@ function NewsList(props) {
   }
 
   return (
-    <div>
-      뉴스 리스트
-      {newsData.length > 0 && newsData.map((news, index) => (
-        <News key={index} news={news} />
-      ))}
+    <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4" id="newsList">
+      {/* 반응형 그리드 */}
+      {newsData.length > 0 &&
+        newsData.map((news, index) => (
+          <News key={index} news={news} />
+        ))}
     </div>
   );
 }

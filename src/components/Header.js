@@ -1,100 +1,93 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+
 const StyledImage = styled.img`
-  height: 80px;
+  width: 100px;
 `;
 
 const StyledTopic = styled.span`
-  font-size: 80px;
+  font-size: 7xl;
   font-weight: bold;
-  color: #D00D17;
+  color: #f00; /* red color */
 `;
 
 function Header(props) {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+        const storedLoggedIn = localStorage.getItem('isLoggedIn');
+        setIsLoggedIn(storedLoggedIn === 'true');
+  }, []); // 빈 배열을 넘겨주면 컴포넌트가 마운트될 때 한 번만 실행됩니다.
+
+  // 로그아웃 핸들러
+  const handleLogout = () => {
+    localStorage.removeItem('isLoggedIn');
+    setIsLoggedIn(false);
+  };
+  
+  // "/developers" 페이지인지 확인하는 함수
+  const isDevelopersPage = () => {
+    return window.location.pathname === "/developers";
+  };
+
   return (
-    <>
-      <div className="bg-white w-full flex items-center justify-center">
+    <div style={{ background: "white", display: "flex", flexDirection: "column", justifyContent: "space-around" }}>
+      <div className="w-full flex items-center justify-center">
         <div className="col-lg-12 p-2 text-center flex items-center">
           <StyledImage src="https://zootopic-s3.s3.ap-northeast-2.amazonaws.com/zoo.png" alt="zoo" className="h-24 inline-block" />
-          <StyledTopic className="inline-block align-middle">Topic</StyledTopic>
+          <StyledTopic className="inline-block align-middle">TOPIC</StyledTopic>
         </div>
       </div>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <div>
           <Link to="/">
             <img src="https://zootopic-s3.s3.ap-northeast-2.amazonaws.com/title.png" style={{ width: "100px" }} />
           </Link>
         </div>
-        <nav>
-          <ul style={{ display: "flex", listStyleType: "none" }}>
-            <li style={{ marginRight: "10px" }}><Link to="/about">뉴스</Link></li>
-            <li><Link to="/contact">서비스 소개</Link></li>
-          </ul>
-        </nav>
+
+        {/* 조건부 렌더링 */}
+        {isDevelopersPage() ? (
+          <nav>
+            <ul style={{ display: "flex", listStyleType: "none" }}>
+              {/* JSON 데이터를 이용하여 동적으로 네비게이션 링크 생성 */}
+              {props.developersData.map(developer => (
+                <a href={`#${developer.id}`} key={developer.id}>
+                  <li style={{ marginRight: "10px" }}>
+                    <button>{developer.name}</button>
+                  </li>
+                </a>  
+              ))}
+            </ul>
+          </nav>
+        ) : (
+          <nav>
+              <ul style={{ display: "flex", listStyleType: "none" }}>
+                {/* 조건부 렌더링 */}
+                {isLoggedIn ? (
+                  // 로그인 상태일 때
+                  <li style={{ marginRight: "10px" }}><button onClick={handleLogout}>로그아웃</button></li>
+                ) : (
+                  // 로그아웃 상태일 때
+                  <Link to='/login'>
+                    <li style={{ marginRight: "10px" }}><button>로그인</button></li>
+                  </Link>
+                )}
+              <a href='#newsList'>
+                <li style={{ marginRight: "10px" }}><button>뉴스</button></li>
+              </a>
+              <a href='#accordion'>
+                <li><button>서비스 소개</button></li>
+              </a>
+            </ul>
+          </nav>
+        )}
       </div>
-    </>
+    </div>
   );
+
 }
 
 export default Header;
 
-
-
-
-// function Header(props) {
-//   return (
-//     <div>
-//       {/* 추가된 부분 */}
-//       <div className="col-lg-12 p-2 bg-white text-center">
-//         <img src="https://zootopic-s3.s3.ap-northeast-2.amazonaws.com/zoo.png" alt="zoo" className="h-24" />
-//         <span className="text-7xl font-bold text-red-600">Topic</span>
-//       </div>
-
-//       {/* 기존 네비게이션 바 */}
-//       <nav className="navbar navbar-expand-lg navbar-light sticky-top bg-white px-2">
-//         <div className="container-fluid">
-//           <Link to="/">
-//             <img src="https://zootopic-s3.s3.ap-northeast-2.amazonaws.com/title.png" style={{ width: "100px" }} />
-//           </Link>
-//           <button
-//             className="navbar-toggler"
-//             type="button"
-//             data-bs-toggle="collapse"
-//             data-bs-target="#navbarScroll"
-//             aria-controls="navbarScroll"
-//             aria-expanded="false"
-//             aria-label="Toggle navigation"
-//           >
-//             <span className="navbar-toggler-icon"></span>
-//           </button>
-//           <div className="collapse navbar-collapse" id="navbarScroll">
-//             <ul className="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll">
-//               <li className="nav-item">
-//                 <a className="nav-link" aria-current="page" href="#album">뉴스</a>
-//               </li>
-//               {/* <li className="nav-item">
-//                 <a className="nav-link" aria-current="page" href="#weather">날씨</a>
-//               </li> */}
-//               <li className="nav-item">
-//                 <a className="nav-link" href="#notice">서비스 안내</a>
-//               </li>
-//             </ul>
-//           </div>
-//         </div>
-//       </nav>
-
-//       {/* 추가된 부분 */}
-//       <div className="container-fluid p-0">
-//         <div className="col-lg-12 py-4 text-center">
-//           <h2 className="font-semibold">
-//             세상의 소식을 놓치지 않고 싶지만, 바쁜 스케줄 때문에 신문을 읽을 시간이 없어요!
-//           </h2>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Header;

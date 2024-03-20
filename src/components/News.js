@@ -1,14 +1,3 @@
-// import React from "react";
-
-// function News(props) {
-//     return(
-//         <div className="text-blue-500 text-xl font-bold">뉴스</div>
-//     )
-// }
-
-// export default News;
-
-// News.js
 import React from "react";
 
 function News({ news }) {

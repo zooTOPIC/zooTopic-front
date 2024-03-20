@@ -9,7 +9,7 @@ function Accordion(props) {
   };
 
   return (
-    <div className="pt-5">
+    <div className="pt-5" id="accordion">
       <div className="container mx-auto px-4">
         {/* 공지사항 */}
         <div className="mb-5">

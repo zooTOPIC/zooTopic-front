@@ -1,13 +1,3 @@
-// import React from "react";
-
-// function Footer(props){
-//     return (
-//         <div>푸터입니다</div>
-//     );
-// }
-
-// export default Footer;
-
 import React, { useState, useEffect } from "react";
 
 function Footer(props) {
@@ -84,7 +74,7 @@ function Footer(props) {
 
       {/* 스크롤 버튼 */}
       <a
-        href="#"
+        href=""
         id="scrollToTopButton"
         className="fixed bottom-5 right-5 bg-gray-500 px-4 py-2 text-white rounded-full shadow-md transition duration-300 ease-in-out hidden"
       >
@@ -92,7 +82,7 @@ function Footer(props) {
       </a>
 
       {/* 푸터 */}
-      <div className="bg-white py-5">
+      <div className="bg-white py-5 w-full">
         <footer className="container text-center">
           <div style={{ lineHeight: "2.5" }}>
             (주)주토픽 / 책임자 : zooTOPIC / 담당자 메일주소 : zoo@topic.com

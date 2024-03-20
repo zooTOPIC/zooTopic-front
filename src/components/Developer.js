@@ -1,13 +1,3 @@
-// import React from "react";
-
-// function Developer(props){
-//     return (
-//         <div>개발자 소개</div>
-//     );
-// }
-
-// export default Developer;
-
 import React from "react";
 
 function Developer({ name, tagline, image, description }) {
