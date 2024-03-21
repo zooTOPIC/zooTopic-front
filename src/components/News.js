@@ -2,10 +2,15 @@ import React from "react";
 
 function News({ news }) {
   const [title, link, img, time, contents] = news;
+  // console.log(link)
+
+  const LinkClick = () => {
+    window.open(link, '_blank');
+  };
 
   return (
     <div className="p-3 bg-white shadow-sm rounded-md">
-      <a href={link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "black" }}>
+      <a onClick={LinkClick} href={link} style={{ textDecoration: "none", color: "black", cursor: "pointer" }}>
         <div className="card" style={{ height: "350px" }}>
           <title>{title}</title>
           <rect width="100%" height="100%" filld="#55595c" />
