@@ -9,7 +9,7 @@ function News({ news }) {
 
   return (
     <div className="p-3 bg-white shadow-sm rounded-md">
-      <a onClick={LinkClick} href={link} style={{ textDecoration: "none", color: "black", cursor: "pointer" }}>
+      <a onClick={LinkClick} style={{ textDecoration: "none", color: "black", cursor: "pointer" }}>
         <div className="card" style={{ height: "350px" }}>
           <title>{title}</title>
           <rect width="100%" height="100%" filld="#55595c" />
