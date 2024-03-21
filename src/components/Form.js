@@ -22,37 +22,35 @@ function Form() {
   const sendMessageToSQS = () => {
     const email = document.getElementById("email").value;
   
-    // Set up AWS SDK
+    // AWS SDK 설정
     AWS.config.update({
-      region: "ap-northeast-2", // AWS region
+      region: "ap-northeast-2", // AWS 리전
       credentials: new AWS.CognitoIdentityCredentials({
         IdentityPoolId: "ap-northeast-2:1be46cc2-3d14-4d13-ae3b-099579178827", // Cognito Identity Pool ID
       }),
     });
   
-    // Create an SQS service object
+    // SQS 서비스 객체 생성
     const sqs = new AWS.SQS();
 
-    // Set up the parameters for the message
     const params = {
-      MessageBody: email, // Use the email value as Message body
-      QueueUrl: "https://sqs.ap-northeast-2.amazonaws.com/590183860160/email-sqs-ses", // Set your SQS queue URL
+      MessageBody: email, 
+      QueueUrl: "https://sqs.ap-northeast-2.amazonaws.com/590183860160/email-sqs-ses", // SQS queue URL
     };
   
-    // Send the message to the SQS queue
+    // SQS queue로 메시지 전송
     sqs.sendMessage(params, function (err, data) {
       if (err) {
         console.error("Error sending message to SQS", err);
       } else {
         console.log("Message sent to SQS:", data.MessageId);
-        sendVerificationEmail(); // Call sendVerificationEmail function after successful SQS message sending
+        sendVerificationEmail(); 
       }
     });
   };
   
   const sendVerificationEmail = () => {
-    // page refresh
-    // window.location.reload();
+    window.location.reload();
   };
   
   
