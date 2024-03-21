@@ -18,8 +18,9 @@ function NewsList(props) {
         const newsData = data
           .split("\n")
           .slice(1, 25)
-          .map((row) => row.split("|")); // CSV 데이터 파싱
+          .map((row) => row.split('"|"')); // CSV 데이터 파싱
         setNewsData(newsData); // 뉴스 데이터 상태 업데이트
+        console.log(data);
       })
       .catch((error) => {
         console.error("Failed to fetch news data", error);
@@ -32,9 +33,9 @@ function NewsList(props) {
       <div className="mt-5 ml-2 w-full">
         <ul className="flex space-x-3 justify-start">
           <li>
-            <button className="text-gray-600 hover:text-gray-900">전체보기</button>
+            <button className="text-gray-600 hover:text-gray-900">오늘의 TOP 뉴스</button>
           </li>
-          <li>
+          {/* <li>
             <button className="text-gray-600 hover:text-gray-900">정치</button>
           </li>
           <li>
@@ -48,13 +49,12 @@ function NewsList(props) {
           </li>
           <li>
             <button className="text-gray-600 hover:text-gray-900">연예</button>
-          </li>
+          </li> */}
         </ul>
       </div>
       <hr className="border-t border-gray-300 m-2 w-full" />
       {/* 뉴스 그리드 */}
       <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 m-4">
-        {/* 반응형 그리드 */}
         {newsData.length > 0 &&
           newsData.map((news, index) => (
             <News key={index} news={news} />

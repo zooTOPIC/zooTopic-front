@@ -2,7 +2,6 @@ import React from "react";
 
 function News({ news }) {
   const [title, link, img, time, contents] = news;
-  // console.log(link)
 
   const LinkClick = () => {
     window.open(link, '_blank');

@@ -42,21 +42,21 @@ function Footer(props) {
     };
   }, []);
 
-  // 모달을 열고 닫는 함수
+  // 모달을 열고 닫기
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
 
-  // 페이지 맨 위로 스크롤하는 함수
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
+      behavior: "smooth"
     });
   };
 
   return (
     <div className="w-full">
-      {/* 하단 문의 버튼 */}
+      {/* 카카오톡 문의 버튼 */}
       <div className="fixed bottom-12 right-0 p-3 z-10">
         <button type="button" onClick={toggleModal}>
           <img
@@ -67,7 +67,7 @@ function Footer(props) {
         </button>
       </div>
 
-      {/* 모달 */}
+      {/* 카카오톡 문의 모달 */}
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center" style={{zIndex: 1001}}>
           <div className="absolute inset-0 bg-gray-900 opacity-50"></div>

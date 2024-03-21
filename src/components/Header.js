@@ -19,7 +19,7 @@ function Header(props) {
   useEffect(() => {
         const storedLoggedIn = localStorage.getItem('isLoggedIn');
         setIsLoggedIn(storedLoggedIn === 'true');
-  }, []); // 빈 배열을 넘겨주면 컴포넌트가 마운트될 때 한 번만 실행됩니다.
+  }, []); // 빈 배열을 넘겨주면 컴포넌트가 마운트될 때 한 번만 실행
 
   // 로그아웃 핸들러
   const handleLogout = () => {
@@ -35,7 +35,6 @@ function Header(props) {
   // 네비게이션 클릭 시 스크롤 이동
   const handleScroll = (id) => {
     const element = document.getElementById(id);
-    console.log(element.offsetTop)
     const offset = 141; // 헤더의 높이
     const position = element.offsetTop - offset;
 

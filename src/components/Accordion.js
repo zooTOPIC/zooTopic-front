@@ -14,7 +14,6 @@ function Accordion(props) {
   };
 
   useEffect(() => {
-    // 페이지가 로드될 때 스크롤을 상단으로 이동
     window.scrollTo(0, 0);
   }, []);
 
