@@ -32,8 +32,21 @@ function Header(props) {
     return window.location.pathname === "/developers";
   };
 
+  // 네비게이션 클릭 시 스크롤 이동
+  const handleScroll = (id) => {
+    const element = document.getElementById(id);
+    console.log(element.offsetTop)
+    const offset = 141; // 헤더의 높이
+    const position = element.offsetTop - offset;
+
+    window.scrollTo({
+      top: position,
+      behavior: "smooth"
+    });
+  };
+
   return (
-    <div style={{ background: "white", display: "flex", flexDirection: "column", justifyContent: "space-around" }}>
+    <div style={{ background: "white", position: "fixed", top: 0, width: "100%", zIndex: 1000 }}>
       <div className="w-full flex items-center justify-center">
       <Link to="/">
         <div className="col-lg-12 p-2 text-center flex items-center">
@@ -55,11 +68,9 @@ function Header(props) {
             <ul style={{ display: "flex", listStyleType: "none" }}>
               {/* JSON 데이터를 이용하여 동적으로 네비게이션 링크 생성 */}
               {props.developersData.map(developer => (
-                <a href={`#${developer.id}`} key={developer.id}>
-                  <li style={{ marginRight: "10px" }}>
-                    <button>{developer.name}</button>
-                  </li>
-                </a>  
+                <li key={developer.id} style={{ marginRight: "12px" }}>
+                  <button onClick={() => handleScroll(developer.id)}>{developer.name}</button>
+                </li>
               ))}
             </ul>
           </nav>
@@ -69,19 +80,15 @@ function Header(props) {
                 {/* 조건부 렌더링 */}
                 {isLoggedIn ? (
                   // 로그인 상태일 때
-                  <li style={{ marginRight: "10px" }}><button onClick={handleLogout}>로그아웃</button></li>
+                  <li style={{ marginRight: "12px", fontWeight:"bold" }}><button onClick={handleLogout}>로그아웃</button></li>
                 ) : (
                   // 로그아웃 상태일 때
                   <Link to='/login'>
-                    <li style={{ marginRight: "10px" }}><button>로그인</button></li>
+                    <li style={{ marginRight: "12px", fontWeight:"bold" }}><button>로그인</button></li>
                   </Link>
                 )}
-              <a href='#newsList'>
-                <li style={{ marginRight: "10px" }}><button>뉴스</button></li>
-              </a>
-              <a href='#accordion'>
-                <li><button>서비스 소개</button></li>
-              </a>
+                <li style={{ marginRight: "12px" }}><button onClick={() => handleScroll('newsList')}>뉴스</button></li>
+                <li><button onClick={() => handleScroll('accordion')}>서비스 소개</button></li>
             </ul>
           </nav>
         )}

@@ -22,17 +22,17 @@ function MyComponent() {
   };
 
   return (
-    <motion.div className="p-5 w-full" style={{ backgroundColor: "#F1AB00" }}>
+    <motion.div className="p-5 w-full" style={{ backgroundColor: "#F1AB00" , marginTop: "141px"}}>
       <div className="flex justify-center items-center my-5 text-white font-semibold">
-        <h3 className="text-center leading-relaxed">
+        <div className="text-center leading-relaxed text-2xl">
           세상 돌아가는 소식을 받아보고 싶지만, 신문을 볼 시간이 없어요!<br />
           월/화/수/목/금 아침마다 세상 돌아가는 소식을 이메일로 받아보세요!
-        </h3>
+        </div>
       </div>
       <div className="container mx-auto">
         {isLoggedIn ? (
           // 로그인된 상태일 때의 UI
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="flex flex-col md:flex-row justify-center items-center">
             <div className="p-5">
               <form className="max-w-xs mx-auto">
                 <div className="mb-4">
@@ -84,6 +84,7 @@ function MyComponent() {
                 {/* 입력 폼 내용 */}
               </form>
             </div>
+            
             <div className="p-5">
               <img
                 src="https://zootopic-s3.s3.ap-northeast-2.amazonaws.com/radio_penguin.png"
@@ -94,8 +95,8 @@ function MyComponent() {
           </div>
         ) : (
           // 로그인되지 않은 상태일 때의 UI
-          <div className="p-5 flex flex-col items-center text-red-600 font-semibold">
-            <div className="col-lg-6 p-5" style={{ minWidth: '350px', maxWidth: '500px', width: '100%' }}>로그인 후 이용 가능합니다.</div>
+          <div className="p-5 flex flex-col md:flex-row justify-center items-center text-red-600 font-semibold">
+            <div className="col-lg-6 p-5 text-lg" style={{ minWidth: '350px', maxWidth: '500px', width: '100%', textAlign:"center" }}>이메일 구독 서비스는 로그인 후 이용 가능합니다.</div>
             <div className="col-lg-6 p-5" style={{ minWidth: '350px', maxWidth: '500px', width: '100%' }}>
               <div className="flex justify-center">
                 <img

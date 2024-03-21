@@ -55,7 +55,7 @@ function Footer(props) {
   };
 
   return (
-    <>
+    <div className="w-full">
       {/* 하단 문의 버튼 */}
       <div className="fixed bottom-12 right-0 p-3 z-10">
         <button type="button" onClick={toggleModal}>
@@ -69,7 +69,7 @@ function Footer(props) {
 
       {/* 모달 */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-20 flex items-center justify-center">
+        <div className="fixed inset-0 flex items-center justify-center" style={{zIndex: 1001}}>
           <div className="absolute inset-0 bg-gray-900 opacity-50"></div>
           <div className="relative bg-white p-8 rounded-md shadow-md">
             <button
@@ -119,8 +119,8 @@ function Footer(props) {
       </a>
 
       {/* 푸터 */}
-      <div className="bg-white py-5 w-full">
-        <footer className="container text-center">
+      <div className="bg-white py-5 ">
+        <footer className="container flex justify-center text-center flex-col">
           <div style={{ lineHeight: "2.5" }}>
             (주)주토픽 / 책임자 : zooTOPIC / 담당자 메일주소 : zoo@topic.com
             <br />
@@ -132,7 +132,7 @@ function Footer(props) {
           <div className="text-body-secondary">&copy; 2024 Company, ZOOTOPIC</div>
         </footer>
       </div>
-    </>
+    </div>
   );
 }
 

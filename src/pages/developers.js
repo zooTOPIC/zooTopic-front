@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 
 function Developers() {
   return (
-    <div>
+    <div className="">
       <Header developersData={developersData} />
       {developersData.map((developer) => (
         <div id={developer.id} key={developer.id}>

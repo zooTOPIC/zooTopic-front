@@ -9,7 +9,7 @@ function Home() {
     <>
       <Header />
         <Form />
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center" id="newsList">
         <NewsList />
         <Accordion />
       </div>

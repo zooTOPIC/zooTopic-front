@@ -29,7 +29,7 @@ function NewsList(props) {
   return (
     <>
       {/* 네비게이션 바 */}
-      <div className="mt-4 ml-2 w-full">
+      <div className="mt-5 ml-2 w-full">
         <ul className="flex space-x-3 justify-start">
           <li>
             <button className="text-gray-600 hover:text-gray-900">전체보기</button>
@@ -53,7 +53,7 @@ function NewsList(props) {
       </div>
       <hr className="border-t border-gray-300 m-2 w-full" />
       {/* 뉴스 그리드 */}
-      <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 m-4" id="newsList">
+      <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 m-4">
         {/* 반응형 그리드 */}
         {newsData.length > 0 &&
           newsData.map((news, index) => (
