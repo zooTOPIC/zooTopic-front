@@ -32,7 +32,7 @@ function Form() {
   
     // Create an SQS service object
     const sqs = new AWS.SQS();
-  
+
     // Set up the parameters for the message
     const params = {
       MessageBody: email, // Use the email value as Message body
@@ -52,7 +52,7 @@ function Form() {
   
   const sendVerificationEmail = () => {
     // page refresh
-    location.reload();
+    // window.location.reload();
   };
   
   

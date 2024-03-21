@@ -80,7 +80,7 @@ function Header(props) {
                 {/* 조건부 렌더링 */}
                 {isLoggedIn ? (
                   // 로그인 상태일 때
-                  <li style={{ marginRight: "12px", fontWeight:"bold" }}><button onClick={handleLogout}>로그아웃</button></li>
+                  <li style={{ marginRight: "12px", fontWeight:"bold" }}><button  onClick={() => { handleLogout(); window.location.reload(); }}>로그아웃</button></li>
                 ) : (
                   // 로그아웃 상태일 때
                   <Link to='/login'>
