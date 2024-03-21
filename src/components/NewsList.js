@@ -11,7 +11,7 @@ function NewsList(props) {
   // AJAX 요청을 보내서 CSV 파일을 가져오고 처리하는 함수
   function fetchNews() {
     fetch(
-      "https://zootopic-s3.s3.ap-northeast-2.amazonaws.com/news_data.csv"
+      "https://zootopic-s3.s3.ap-northeast-2.amazonaws.com/news_data_2.csv"
     )
       .then((response) => response.text())
       .then((data) => {
