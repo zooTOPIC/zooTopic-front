@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 
 function Developers() {
   return (
-    <div className="">
+    <div style={{marginTop: "141px"}}>
       <Header developersData={developersData} />
       {developersData.map((developer) => (
         <div id={developer.id} key={developer.id}>

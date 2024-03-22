@@ -67,7 +67,7 @@ function Form() {
         {isLoggedIn ? (
           // 로그인된 상태일 때의 UI
           <div className="p-5 flex flex-col md:flex-row justify-center items-center">
-            <form className="col-lg-6 p-5 text-lg" style={{ minWidth: '350px', maxWidth: '500px', width: '100%', textAlign:"center" }}>
+            <form className="col-lg-6 p-5 text-lg" style={{ minWidth: '350px', maxWidth: '520px', width: '100%', textAlign:"center" }}>
               <div className="mb-4">
                 <input
                   type="email"
@@ -109,7 +109,7 @@ function Form() {
                 <strong>뉴스레터 무료로 구독하기</strong>
               </button>
             </form>
-            <div className="col-lg-6 p-5" style={{ minWidth: '350px', maxWidth: '500px', width: '100%' }}>
+            <div className="col-lg-6 p-5" style={{ minWidth: '350px', maxWidth: '520px', width: '100%' }}>
               <div className="flex justify-center">
                 <img
                   src="https://zootopic-s3.s3.ap-northeast-2.amazonaws.com/radio_penguin.png"
@@ -122,10 +122,10 @@ function Form() {
         ) : (
           // 로그인되지 않은 상태일 때의 UI
           <div className="p-5 flex flex-col md:flex-row justify-center items-center text-white font-semibold">
-            <div className="col-lg-6 p-5 text-lg" style={{ minWidth: '350px', maxWidth: '500px', width: '100%', textAlign:"center" }}>
+            <div className="col-lg-6 p-5 text-lg" style={{ minWidth: '350px', maxWidth: '520px', width: '100%', textAlign:"center" }}>
             💌이메일 구독 서비스를 편리하게 이용하고 싶다구요?💌<br />로그인 후 모든 재미있는 내용을 만나보세요!🌟<br />함께 놀 준비가 되셨나요? 😉
             </div>
-            <div className="col-lg-6 p-5" style={{ minWidth: '350px', maxWidth: '500px', width: '100%' }}>
+            <div className="col-lg-6 p-5" style={{ minWidth: '350px', maxWidth: '520px', width: '100%' }}>
               <div className="flex justify-center">
                 <img
                   src="https://zootopic-s3.s3.ap-northeast-2.amazonaws.com/radio_penguin.png"
