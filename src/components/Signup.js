@@ -49,7 +49,7 @@ function Signup(props) {
         </div>
         <div className="flex justify-center mt-9">
           <div className="flex flex-col" style={{width: '200px'}}>
-            <form className="my-7" action="http://172.16.194.52:8080/member/save" method="post">
+            <form className="my-7" action="http://192.168.240.43:8080/member/save" method="post">
               <div className="mb-5 ">
                 <input type="text" placeholder="이름" className="mt-1 block w-full rounded-md shadow-sm sm:text-sm p-1" id="name" name="userName" />
               </div>

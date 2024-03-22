@@ -45,7 +45,7 @@ function Login(props) {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://172.16.194.52:8080/member/login", {
+      const response = await axios.post("http://192.168.240.43:8080/member/login", {
         userEmail: email,
         userPwd: password
       });

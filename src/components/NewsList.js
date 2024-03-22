@@ -20,7 +20,6 @@ function NewsList(props) {
           .slice(1, 25)
           .map((row) => row.split('"|"')); // CSV 데이터 파싱
         setNewsData(newsData); // 뉴스 데이터 상태 업데이트
-        console.log(data);
       })
       .catch((error) => {
         console.error("Failed to fetch news data", error);
@@ -35,21 +34,6 @@ function NewsList(props) {
           <li>
             <button className="text-gray-600 hover:text-gray-900">오늘의 TOP 뉴스</button>
           </li>
-          {/* <li>
-            <button className="text-gray-600 hover:text-gray-900">정치</button>
-          </li>
-          <li>
-            <button className="text-gray-600 hover:text-gray-900">경제</button>
-          </li>
-          <li>
-            <button className="text-gray-600 hover:text-gray-900">사회</button>
-          </li>
-          <li>
-            <button className="text-gray-600 hover:text-gray-900">스포츠</button>
-          </li>
-          <li>
-            <button className="text-gray-600 hover:text-gray-900">연예</button>
-          </li> */}
         </ul>
       </div>
       <hr className="border-t border-gray-300 m-2 w-full" />
